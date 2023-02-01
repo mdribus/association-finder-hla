@@ -83,9 +83,15 @@ The versions that we used are included, but other versions may work, too.
 ### Running the demo:
 1. On the command line, go to the working directory and unzip the HLA typing files: `gunzip *.txt.gz`
 
-2. Run 1_find_associations_final.R: `Rscript 1_find_associations_final.R SAA API,CAU 5 10` <br /> After the script name, the first argument is the disease, the second argument is the population, the third argument is the number of imputation replicates, and the fourth argument is the number of HLA variants that you want the script to analyze for each analysis category. You can analyze more than one population; just separate them by a comma, as shown above. The arguments for disease and population are based on how you named your input files. The example above will analyze both the Asian & Pacific Islander and White populations, using 5 imputation replicates for each HLA typing file and analyzing 10 HLA variants per analysis category. This step may take over 15 minutes to run. Output files are written to the /Multi and /Summary directories.
+2. **Run 1_find_associations_final.R**: `Rscript 1_find_associations_final.R SAA API,CAU 5 10` <br /> This script requires command line arguments for the disease, the population, the number of imputation replicates, and the number of HLA variants to be analyzed in each category. You can include more than one population; just separate them by a comma, as shown above. The arguments for disease and population are based on how you named your input files. The example above will analyze both the Asian & Pacific Islander and White populations, using 5 imputation replicates for each HLA typing file and analyzing 10 HLA variants per category. This step may take over 15 minutes to run. Output files are written to the /Multi and /Summary directories.
 
-3. Run 2_fdr_correction_final.R: `Rscript 2_fdr_correction_final.R SAA API,CAU` <br /> This script accepts command line arguments for disease and population. 
+3. **Run 2_fdr_correction_final.R**: `Rscript 2_fdr_correction_final.R SAA API,CAU` <br /> This script requires command line arguments for disease and population. Output files are written to the /FDR and /Summary directories.
+
+4. **Run 3_factor_analysis_final.R**: `Rscript 3_factor_analysis_final.R SAA API,CAU` <br /> This script also requires command line arguments for disease and population. This step may take a few minutes to run. Output files are written to the /Multi directory.
+
+5. **Run 4_master_tables_final.R**: `Rscript 4_master_tables_final.R SAA API,CAU` <br /> This script also requires command line arguments for disease and population. Output files are written to the /Masters directory.
+
+6. **Run 5_final_tables_final.R**: `Rscript 5_final_tables_final.R SAA API,CAU` <br /> This script also requires command line arguments for disease and population. Output files are written to the /Masters directory. 
 
 
 
