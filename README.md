@@ -63,6 +63,7 @@ flowchart TD
   D --> G[FDR]
   D --> H[Masters]
 ```
+You should change the name of the disease folder to whatever disease you are studying. SAA is used in the demo here. 
 
 AssociationFinderHLA was developed in R (version 4.0.1). The following R packages are required:
 - data.table (version 1.14.2)
