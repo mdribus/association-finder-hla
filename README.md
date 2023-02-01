@@ -105,7 +105,14 @@ The versions that we used are included, but other versions may work, too.
 - The \*_suggestive_variants.csv files contain the same information as the \*_FDR.csv files, except that they only include variants that had significant p-values before FDR correction and not-significant p-values after FDR correction. See the example file *Example_CAU_suggestive_variants.csv in the /Summary directory.
 
 **3_factor_analysis_final.R**:
-- The 
+- If factor analysis detects underlying structure in the data for both individual alleles & haplotypes and genotypes, \*_Grouping.csv and \*_Geno_Grouping.csv files will be produced. In this demo, you should see both of these files for the White population, but only the \*_Grouping.csv file for the Asian & Pacific Islander population. These files contain the HLA variant, group assignment, and loading score. See the example files *Example_CAU_Grouping.csv and *Example_CAU_Geno_Grouping.csv in the /Multi directory.
+- Scree plots are produced that correlate with the \*_Grouping.csv and \*_Geno_Grouping.csv files. See the example files *Example_CAU_2dig_PATscreeplot.png and *Example_CAU_2dig_PATscreeplot.png in the /Multi directory.
+
+**4_master_tables_final.R**:
+- The \*_Full_ALLELE_FA_MasterFile.csv files include all of the summary statistics and factor analysis information for the significant variants for each population. See the example file *Example_CAU_Full_ALLELE_FA_MasterFile.csv in the /Masters directory.
+
+**5_final_tables_final.R**:
+- *Final_Tables.xlsx is an Excel file with the results for each population on a separate worksheet. Results are organized by factor analysis group and sorted by ascending p-value. See the example *Example_Final_Tables.xlsx in the /Masters directory.
 
 
 
