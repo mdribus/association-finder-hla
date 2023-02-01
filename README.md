@@ -28,7 +28,7 @@ This file tells the disease association pipeline how to analyze the input data. 
 1. **ind**: This column contains the index, starting at 1
 2. **name**: This column contains the column names in the HLA typing files
 3. **locus**: This column identifies the locus for each column in the HLA typing files
-4. **type**: This column assigns a haplotype or genotype category to each column in the HLA typing files. Use "HR" for individual alleles and haplotypes and "HRGeno" for genotypes.
+4. **type**: This column assigns a haplotype or genotype category to each column in the HLA typing files. Use "demo" for the **ID** and **Disease_Ind** columns. Use "HR" for individual alleles and haplotypes and "HRGeno" for genotypes.
 5. **example**: This column includes examples of the HLA typing data for each column in the HLA typing files. The example does not need to correlate with the HLA typing that is actually present in the HLA typing files as long as the pattern is the same.
 
 This is how the disease_columns.csv file should look for the HLA typing input shown above:
@@ -51,6 +51,7 @@ This is how the disease_columns.csv file should look for the HLA typing input sh
 These files are unique to each population and include two-field alleles that are probably present in the data because of an incorrect assignment of race/ethnic background. The alleles should not be analyzed for associations. Otherwise, associations with extremely high odds ratios are identified in error. HLA allele frequencies differ across populations defined by race/ethnicity. Due to inconsistencies when reporting race/ethnicity when collecting HLA typing data, some individuals will be placed in the wrong a racial/ethnic category. Alleles are included in these files for a given population if the allele frequency is more than 5x higher in any other population. These calculations were performed for the African American, Asian & Pacific Islander, White, and Hispanic populations based on 9-locus allele frequencies provided by the National Marrow Donor Program in 2021.
 
 ## Running AssociationFinderHLA:
+### Cloning the repository and setting up your computer:
 
 You can run AssociationFinderHLA using the command line after cloning this repository. [Click here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) for instructions. The scripts and input files must remain in the /immune-gene-association directory for the file paths to work properly. The directory structure is organized like this:
 
@@ -79,6 +80,12 @@ AssociationFinderHLA was developed in R (version 4.0.1). The following R package
 
 The versions that we used are included, but other versions may work, too.
 
-### 
+### Running the demo:
+1. On the command line, go to the working directory and unzip the HLA typing files: `gunzip *.txt.gz`
+
+2. Run 1_find_associations_final.R: `Rscript 1_find_associations_final.R SAA API,CAU 5 10` <br /> After the script name, the first argument is the disease, the second argument is the population, the third argument is the number of imputation replicates, and the fourth argument is the number of HLA variants that you want the script to analyze for each analysis category. You can analyze more than one population; just separate them by a comma, as shown above. The arguments for disease and population are based on how you named your input files. The example above will analyze both the Asian & Pacific Islander and White populations, using 5 imputation replicates for each HLA typing file and analyzing 10 HLA variants per analysis category. This step may take over 15 minutes to run. Output files are written to the /Multi and /Summary directories.
+
+3. Run 2_fdr_correction_final.R: `Rscript 2_fdr_correction_final.R SAA API,CAU` <br /> This script accepts command line arguments for disease and population. 
+
 
 
