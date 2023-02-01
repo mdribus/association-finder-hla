@@ -93,5 +93,19 @@ The versions that we used are included, but other versions may work, too.
 
 6. **Run 5_final_tables_final.R**: `Rscript 5_final_tables_final.R SAA API,CAU` <br /> This script also requires command line arguments for disease and population. Output files are written to the /Masters directory. 
 
+## Explanation of the results:
+
+**1_find_associations_final.R**:
+- The \*_Multi_ORstats.csv files contain the odds ratios, 95% confidence intervals, p-values, numbers of imputation replicates, and standard errors for each HLA variant analyzed in each category. See the example file *Example_CAU_C_HR_Multi_ORstats.csv* in the /Multi directory.
+- The \*_summaryFile.csv files contain the average count, frequencies, and ranks for cases and controls for each HLA variant analyzed in each category. These are not restricted by the argument to limit the number of HLA variants to be analyzed in each category. See the example file *Example_CAU_C_HR_summaryFile.csv* in the /Summary directory. 
+
+**2_fdr_correction_final.R**:
+- The \*_FDR.csv files contain the odds ratios, 95% confidence intervals, p-values before adjustment, numbers of imputation replicates, standard errors, and Q values. They also include the adjusted p-values and 95% confidence intervals. Significant HLA variants are identified by "\*\*\*" in the "significant" column. See the example file *Example_CAU_C_HR_FDR* in the /FDR directory.
+- The \*_FDR_allSignificant.csv files contain the same information as the \*_FDR.csv files, except that they only include variants whose p-values remain significant after FDR correction. See the example file *Example_CAU_FDR_allSignificant.csv in the /FDR directory.
+- The \*_suggestive_variants.csv files contain the same information as the \*_FDR.csv files, except that they only include variants that had significant p-values before FDR correction and not-significant p-values after FDR correction. See the example file *Example_CAU_suggestive_variants.csv in the /Summary directory.
+
+**3_factor_analysis_final.R**:
+- The 
+
 
 
