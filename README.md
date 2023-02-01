@@ -78,7 +78,7 @@ AssociationFinderHLA was developed in R (version 4.0.1). The following R package
 - openxlsx (version 4.2.5.1)
 - gtools (version 3.9.4)
 
-The versions that we used are included, but other versions may work, too.
+The versions we used are included, but other versions may work, too.
 
 ### Running the demo:
 1. On the command line, go to the working directory and unzip the HLA typing files: `gunzip *.txt.gz`
