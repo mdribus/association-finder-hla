@@ -21,3 +21,29 @@ In the HLA typing files, the IDs occupy the first column, **ID**, and the diseas
 | -------- | ----------- | ---- | ---- | ---- | ---- | ---- | ---- | --------- | --------- | ---------------- |
 |24537890|1|A\*11:01|C\*12:03|B\*38:01|A\*24:02|C\*08:02|B\*14:02|A\*11:01\~C\*12:03|A\*24:02\~C\*08:02|A\*11:01\~C\*12:03\~B\*38:01\+A\*24:02\~C\*08:02\~B\*14:02|
 |43654356|0|A\*01:01|C\*07:01|B\*08:01|A\*01:01|C\*07:01|B\*08:01|A\*01:01~C\*07:01|A\*01:01~C\*07:01|A\*01:01\~C\*07:01\~B\*08:01\+A\*01:01\~C\*07:01\~B\*08:01|
+### disease_columns.csv:
+This file tells the disease association pipeline how to analyze the input data. It contains 5 columns:
+1. **ind**: This column contains the index, starting at 1
+2. **name**: This column contains the column names in the HLA typing files
+3. **locus**: This column identifies the locus for each column in the HLA typing files
+4. **type**: This column assigns a haplotype or genotype category to each column in the HLA typing files. Use "HR" for individual alleles and haplotypes and "HRGeno" for genotypes.
+5. **example**: This column includes examples of the HLA typing data for each column in the HLA typing files. The example does not need to correlate with the HLA typing that is actually present in the HLA typing files as long as the pattern is the same.
+
+This is how the disease_columns.csv file should look for the HLA typing input shown above:
+
+|      ind      |     name         |      locus        |         type          |         example       |
+| ------------- | ---------------- | ----------------- | --------------------- | --------------------- |
+|1|ID|NA|demo|45762389|
+|2|Disease_Ind|NA|demo|1|
+|3|A1|A|HR|A\*02:01| 
+|4|C1|C|HR|C\*07:02|
+|5|B1|B|HR|B\*14:02|
+|6|A2|A|HR|A\*02:01| 
+|7|C2|C|HR|C\*07:02|
+|8|B2|B|HR|B\*07:01|
+|9|Hap_A1_C1|A_C|HR|A\*02:01\~C\*07:02|
+|10|Hap_A2_C2|A_C|HR|A\*03:01\~C\*02:02|
+|11|Geno_A_C_B|A_C_B|HRGeno|A\*02:01\~C\*07:02\~B\*07:02\+A\*03:01\~C\*02:02\~B\*51:01|
+
+### Alleles to skip:
+These files are unique to each population and include alleles that are probably present in the data because of an incorrect assignment of race/ethnic background. The alleles should be skipped. Otherwise, associations with extremely high odds ratios are identified in error. HLA allele frequencies differ across populations defined by race/ethnicity. Due to inconsistencies when reporting race/ethnicity when collecting HLA typing data, some individuals will be placed in the wrong a racial/ethnic category. Alleles are included in these files for a given population if the allele frequency is more than 5x higher in any other population. These calculations were performed for the African American, Asian & Pacific Islander, White, and Hispanic populations based on 9-locus allele frequencies provided by the National Marrow Donor Program in 2021.
