@@ -16,6 +16,8 @@ if(!require("broom"))
   install.packages("broom")
 if(!require("purrr"))
   install.packages("purrr")
+if(!require("tibble"))
+  install.packages("tibble")
 
 library("tibble")
 library("purrr")
