@@ -1,6 +1,7 @@
 # association-finder-hla-pretend
 This repository contains scripts to perform HLA disease association studies using a disease association pipeline developed in R called AssociationFinderHLA. AssociationFinderHLA was designed to run on the command line. It can identify allele, haplotype, and genotype associations. 
 ## Scripts in AssociationFinderHLA:
+All of these scripts should be present in the /immune-gene-association directory.
 ### 1_find_associations_final.R:
 This script identifies the associations and calculates summary statistics for each analysis category. It produces output in the /Multi and /Summary subdirectories.
 ### 2_fdr_correction_final.R: 
@@ -12,6 +13,7 @@ This script organizes the associations and factor analysis group assignments int
 ### 5_final_tables_final.R: 
 This script writes an Excel file with the association results for each population sorted by p-value and and factor analysis group assignment. It produces output in the /Masters subdirectory. 
 ## Other required files:
+All of these files should be present in the /immune-gene-association directory.
 ### HLA typing files:
 These files contain the IDs, disease indicators, and HLA typing for the cases and controls. They should be named with the prefix "HLA_input_" followed by the disease, population, imputation replicate number, and the file extension ".txt". This is how the a file should be named if it contains HLA typing for cases with severe aplastic anemia (SAA) in the Asian & Pacific Islander population and is the first imputation replicate: 
 **HLA_input_SAA_API_1.txt**
@@ -45,23 +47,38 @@ This is how the disease_columns.csv file should look for the HLA typing input sh
 |10|Hap_A2_C2|A_C|HR|A\*03:01\~C\*02:02|
 |11|Geno_A_C_B|A_C_B|HRGeno|A\*02:01\~C\*07:02\~B\*07:02\+A\*03:01\~C\*02:02\~B\*51:01|
 
-### Alleles to skip:
-These files are unique to each population and include two-field alleles that are probably present in the data because of an incorrect assignment of race/ethnic background. The alleles should be skipped. Otherwise, associations with extremely high odds ratios are identified in error. HLA allele frequencies differ across populations defined by race/ethnicity. Due to inconsistencies when reporting race/ethnicity when collecting HLA typing data, some individuals will be placed in the wrong a racial/ethnic category. Alleles are included in these files for a given population if the allele frequency is more than 5x higher in any other population. These calculations were performed for the African American, Asian & Pacific Islander, White, and Hispanic populations based on 9-locus allele frequencies provided by the National Marrow Donor Program in 2021.
+### Alleles to skip: \*_alleles_to_skip_two_field.csv
+These files are unique to each population and include two-field alleles that are probably present in the data because of an incorrect assignment of race/ethnic background. The alleles should not be analyzed for associations. Otherwise, associations with extremely high odds ratios are identified in error. HLA allele frequencies differ across populations defined by race/ethnicity. Due to inconsistencies when reporting race/ethnicity when collecting HLA typing data, some individuals will be placed in the wrong a racial/ethnic category. Alleles are included in these files for a given population if the allele frequency is more than 5x higher in any other population. These calculations were performed for the African American, Asian & Pacific Islander, White, and Hispanic populations based on 9-locus allele frequencies provided by the National Marrow Donor Program in 2021.
 
-## Running the disease association pipeline:
-AssociationFinderHLA was developed using R version 4.0.1. Required R packages include the following:
--data.table (version 1.14.2)
--dplyr (version 1.0.8)
--broom (version 1.0.1)
--purrr (version 0.3.4)
--fdrtool (version 1.2.16)
--MASS (version 7.3.54)
--psych (version 2.1.9)
--GPArotation (version 2014.11.1)
--corrplot (version 0.90)
--parallel (version 4.0.1)
--openxlsx (version 4.2.5.1)
--gtools (version 3.9.4)
+## Running AssociationFinderHLA:
+
+You can run AssociationFinderHLA using the command line after cloning this repository. [Click here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) for instructions. The scripts and input files must remain in the /immune-gene-association directory for the file paths to work properly. The directory structure is organized like this:
+
+```mermaid
+flowchart TD
+  A[association-finder-hla-pretend] --> B[immune-gene-association] --> C[output] --> D[SAA];
+  D --> E[Multi]
+  D --> F[Summary]
+  D --> G[FDR]
+  D --> H[Masters]
+```
+
+AssociationFinderHLA was developed in R (version 4.0.1). The following R packages are required:
+- data.table (version 1.14.2)
+- dplyr (version 1.0.8)
+- broom (version 1.0.1)
+- purrr (version 0.3.4)
+- fdrtool (version 1.2.16)
+- MASS (version 7.3.54)
+- psych (version 2.1.9)
+- GPArotation (version 2014.11.1)
+- corrplot (version 0.90)
+- parallel (version 4.0.1)
+- openxlsx (version 4.2.5.1)
+- gtools (version 3.9.4)
+
 The versions that we used are included, but other versions may work, too.
+
+### 
 
 
