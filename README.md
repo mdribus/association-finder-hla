@@ -81,6 +81,9 @@ AssociationFinderHLA was developed in R (version 4.0.1). The following R package
 The versions we used are included, but other versions may work, too.
 
 ### Running the demo:
+
+This demo uses HLA typing data from the National Marrow Donor Program that includes patients with severe aplastic anemia and healthy controls. HLA typing data from two populations was included. From the Asian & Pacific Islander population, 250 cases and 1000 controls were included, and from the White population, 500 cases and 2000 controls were included.
+
 1. On the command line, go to the working directory and unzip the HLA typing files: `gunzip *.txt.gz`
 
 2. **Run 1_find_associations_final.R**: `Rscript 1_find_associations_final.R SAA API,CAU 5 10` <br /> This script requires command line arguments for the disease, the population, the number of imputation replicates, and the number of HLA variants to be analyzed in each category. You can include more than one population; just separate them by a comma, as shown above. The arguments for disease and population are based on how you named your input files. The example above will analyze both the Asian & Pacific Islander and White populations, using 5 imputation replicates for each HLA typing file and analyzing 10 HLA variants per category. This step may take over 15 minutes to run. Output files are written to the /Multi and /Summary directories.
