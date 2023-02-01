@@ -1,5 +1,5 @@
 # association-finder-hla-pretend
-This repository contains scripts to perform HLA disease association studies using a disease association pipeline developed in R called AssociationFinderHLA. AssociationFinderHLA was designed to run on the command line. It can identify allele, haplotype, and genotype associations. 
+This repository contains scripts to perform case-control HLA disease association studies using a pipeline developed in R called AssociationFinderHLA. AssociationFinderHLA can identify allele, haplotype, and genotype associations. It can also analyze other HLA variant categories due to the flexible structure in its HLA typing input files. In addition, it performs correction for false discovery rate and organizes associated HLA variants into factor analysis groups for reliable results and simplified interpretation. 
 ## Scripts in AssociationFinderHLA:
 All of these scripts should be present in the /immune-gene-association directory.
 ### 1_find_associations_final.R:
