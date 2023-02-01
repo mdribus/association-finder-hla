@@ -112,7 +112,7 @@ The versions that we used are included, but other versions may work, too.
 - The \*_Full_ALLELE_FA_MasterFile.csv files include all of the summary statistics and factor analysis information for the significant variants for each population. See the example file **Example_CAU_Full_ALLELE_FA_MasterFile.csv** in the /Masters directory.
 
 **5_final_tables_final.R**:
-- *Final_Tables.xlsx* is an Excel file with the results for each population on a separate worksheet. Results are organized by factor analysis group and sorted by ascending p-value. See the example *Example_Final_Tables.xlsx* in the /Masters directory.
+- *Final_Tables.xlsx* is an Excel file with the results for each population on a separate worksheet. Results are organized by factor analysis group and sorted by ascending p-value. See the example **Example_Final_Tables.xlsx** in the /Masters directory.
 
 
 
