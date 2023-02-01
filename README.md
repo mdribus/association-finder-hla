@@ -49,10 +49,19 @@ This is how the disease_columns.csv file should look for the HLA typing input sh
 These files are unique to each population and include two-field alleles that are probably present in the data because of an incorrect assignment of race/ethnic background. The alleles should be skipped. Otherwise, associations with extremely high odds ratios are identified in error. HLA allele frequencies differ across populations defined by race/ethnicity. Due to inconsistencies when reporting race/ethnicity when collecting HLA typing data, some individuals will be placed in the wrong a racial/ethnic category. Alleles are included in these files for a given population if the allele frequency is more than 5x higher in any other population. These calculations were performed for the African American, Asian & Pacific Islander, White, and Hispanic populations based on 9-locus allele frequencies provided by the National Marrow Donor Program in 2021.
 
 ## Running the disease association pipeline:
-AssociationFinderHLA was developed for R version 4.0.1. Required R packages include the following:
--data.table
--dplyr
--broom
--purr
+AssociationFinderHLA was developed using R version 4.0.1. Required R packages include the following:
+-data.table (version 1.14.2)
+-dplyr (version 1.0.8)
+-broom (version 1.0.1)
+-purrr (version 0.3.4)
+-fdrtool (version 1.2.16)
+-MASS (version 7.3.54)
+-psych (version 2.1.9)
+-GPArotation (version 2014.11.1)
+-corrplot (version 0.90)
+-parallel (version 4.0.1)
+-openxlsx (version 4.2.5.1)
+-gtools (version 3.9.4)
+The versions that we used are included, but other versions may work, too.
 
 
