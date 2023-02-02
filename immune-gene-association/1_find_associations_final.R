@@ -70,12 +70,6 @@ for (pop in 1:length(POPULATIONS)){ # loops through every population
     print(paste("Data Import of", fileName,"completed."))
   }
 
-  # these are the files with the alleles that should be skipped in each population
-  # these alleles that should be skipped are universal: based on population allele frequencies
-  alleles_to_skip_name=paste0(getwd(), "/", popName, "_alleles_to_skip_two_field.csv")
-  alleles_to_skip <- read.csv(alleles_to_skip_name)
-  alleles_to_skip <- alleles_to_skip$Allele # converts data frame column to character vector
-
   print("Finding the associations...")
 
   # begin analysis loop
@@ -175,10 +169,6 @@ for (pop in 1:length(POPULATIONS)){ # loops through every population
           currAllele<-as.character(chosenAllele[i]) # which HLA variant - e.g. A*01:01g
           rowforcurrentallele<-filter(completeFreq2, Allele == currAllele)
           controlfrequencyforcurrentallele<-rowforcurrentallele$V3
-
-          if (currAllele %in% alleles_to_skip){
-            next
-          }
           
           ALLELE<-numeric(nrow(analysisColumns)) # indicator for which rows have allele - logical OR if two columns
           
