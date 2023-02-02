@@ -48,9 +48,6 @@ This is how the disease_columns.csv file should look for the HLA typing input sh
 |10|Hap_A2_C2|A_C|HR|A\*03:01\~C\*02:02|
 |11|Geno_A_C_B|A_C_B|HRGeno|A\*02:01\~C\*07:02\~B\*07:02\+A\*03:01\~C\*02:02\~B\*51:01|
 
-### Alleles to skip: \*_alleles_to_skip_two_field.csv
-These files are unique to each population and include two-field alleles that are probably present in the data because of an incorrect assignment of race/ethnic background. The alleles should not be analyzed for associations. Otherwise, associations with extremely high odds ratios are identified in error. HLA allele frequencies differ across populations defined by race/ethnicity. Due to inconsistencies when reporting race/ethnicity when collecting HLA typing data, some individuals will be placed in the wrong a racial/ethnic category. Alleles are included in these files for a given population if the allele frequency is more than 5x higher in any other population. These calculations were performed for the African American, Asian & Pacific Islander, White, and Hispanic populations based on 9-locus haplotype frequencies provided by the National Marrow Donor Program in 2021.
-
 ## Running AssociationFinderHLA:
 ### Cloning the repository and setting up your computer:
 
@@ -118,6 +115,3 @@ This demo uses HLA typing data from two populations. From the first population, 
 
 **5_final_tables_final.R**:
 - *Final_Tables.xlsx* is an Excel file with the results for each population on a separate worksheet. Results are organized by factor analysis group and sorted by ascending p-value. See the example **Example_Final_Tables.xlsx** in the /Masters directory.
-
-
-
