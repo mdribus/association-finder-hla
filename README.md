@@ -18,7 +18,7 @@ This script writes an Excel file with the association results for each populatio
 ## Other required files:
 All of these files should be present in the /immune-gene-association directory.
 ### HLA typing files:
-These files contain the IDs, disease indicators, and HLA typing for the cases and controls. They should be named with the prefix "HLA_input_" followed by the disease, population, imputation replicate number, and the file extension ".txt". This is how the a file should be named if it contains HLA typing for cases with "Disease X" (DX) in a given population and is the first imputation replicate: 
+These files contain the IDs, disease indicators, and HLA typing for the cases and controls. They should be named with the prefix "HLA_input_" followed by the disease, population, imputation replicate number, and the file extension ".txt". This is how the a file should be named if it contains HLA typing for cases with "Disease X" (DX) and healthy controls in a given population and is the first imputation replicate: 
 **HLA_input_DX_POP1_1.txt**
 
 In the HLA typing files, the IDs occupy the first column, **ID**, and the disease indicators occupy the second column, **Disease_Ind**. A value of "1" in the Disease_Ind column identifies a case, while a value of "0" identifies a control. The other columns in the file contain HLA typing for individual alleles, haplotypes, and genotypes. This is how the input data should look for a case with the HLA typing *A\*11:01\~C\*12:03\~B\*38:01\+A\*24:02\~C\*08:02\~B\*14:02* and a control with the HLA typing *A\*01:01\~C\*07:01\~B\*08:01\+A\*01:01\~C\*07:01\~B\*08:01*:
