@@ -1,4 +1,4 @@
-# association-finder-hla-pretend
+# association-finder-hla
 This repository contains scripts to perform case-control HLA disease association studies using an R pipeline called AssociationFinderHLA. AssociationFinderHLA can identify allele, haplotype, and genotype associations. It can also analyze other HLA variant categories due to the flexible structure of its HLA typing input files. In addition, it performs correction for false discovery rate and organizes associated HLA variants into factor analysis groups for reliable results and simplified interpretation. 
 
 **AssociationFinderHLA is currently under development and should be used for research purposes only.**
@@ -57,7 +57,7 @@ You can run AssociationFinderHLA using the command line after cloning this repos
 
 ```mermaid
 flowchart TD
-  A[association-finder-hla-pretend] --> B[immune-gene-association] --> C[output] --> D[DX];
+  A[association-finder-hla] --> B[immune-gene-association] --> C[output] --> D[DX];
   D --> E[Multi]
   D --> F[Summary]
   D --> G[FDR]
