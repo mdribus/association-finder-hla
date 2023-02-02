@@ -109,7 +109,7 @@ This demo uses HLA typing data from two populations. From the first population, 
 - The \*_suggestive_variants.csv files contain the same information as the \*_FDR.csv files, except that they only include variants that had significant p-values before FDR correction and not-significant p-values after FDR correction. See the example file **Example_POP2_suggestive_variants.csv** in the /Summary directory.
 
 **3_factor_analysis_final.R**:
-- If factor analysis detects underlying structure in the data for both individual alleles & haplotypes and genotypes, \*_Grouping.csv and \*_Geno_Grouping.csv files will be produced. In this demo, you should see both of these files for the White population, but only the \*_Grouping.csv file for the Asian & Pacific Islander population. These files contain the HLA variant, group assignment, and loading score. See the example files **Example_POP2_Grouping.csv** and **Example_POP2_Geno_Grouping.csv** in the /Multi directory.
+- If factor analysis detects underlying structure in the data for both individual alleles & haplotypes and genotypes, \*_Grouping.csv and \*_Geno_Grouping.csv files will be produced. In this demo, you should see both of these files for POP2, but only the \*_Grouping.csv file for POP1. These files contain the HLA variant, group assignment, and loading score. See the example files **Example_POP2_Grouping.csv** and **Example_POP2_Geno_Grouping.csv** in the /Multi directory.
 - Scree plots are produced that correlate with the \*_Grouping.csv and \*_Geno_Grouping.csv files. See the example files **Example_POP2_2dig_PATscreeplot.png** and **Example_POP2_2dig_PATscreeplot.png** in the /Multi directory.
 
 **4_master_tables_final.R**:
