@@ -25,12 +25,14 @@ args <- commandArgs(trailingOnly = TRUE)
 if (length(args) != 0) {
   thisDisease <- args[1]
   pop <- args[2]
+  imputation_replicates <- args[3] # tells the script how many imputation replicates you're using
 }
 
 # set up print statements for the arguments:
 print(paste0("This disease: ",thisDisease))
 POPULATIONS = as.list(strsplit(pop, ",")[[1]]) # formats the population argument
 print(paste0("Population(s): ",POPULATIONS))
+print(paste0("Replicates: ",imputation_replicates))
 
 for (pop in 1:length(POPULATIONS)){
   for (analysis in 1:length(ANALYSIS_NAMES)) {
@@ -56,7 +58,7 @@ for (pop in 1:length(POPULATIONS)){
     
     if (run) {
 
-      orData=orData[which(orData$numTested==5),]
+      orData=orData[which(orData$numTested==as.numeric(imputation_replicates)),]
       
       if(nrow(orData)>0){
         
