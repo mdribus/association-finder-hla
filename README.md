@@ -89,7 +89,7 @@ This demo uses HLA typing data from two populations. From the first population, 
 
 2. **Run 1_find_associations_final.R**: `Rscript 1_find_associations_final.R DX POP1,POP2 5 10` <br /> This script requires command line arguments for the disease, the population, the number of imputation replicates, and the number of HLA variants to be analyzed in each category. You can include more than one population; just separate them by a comma, as shown above. The arguments for disease and population are based on how you named your input files. The example above will analyze both POP1 and POP2, using 5 imputation replicates for each HLA typing file and analyzing 10 HLA variants per category. This step may take over 15 minutes to run. Output files are written to the /Multi and /Summary directories.
 
-3. **Run 2_fdr_correction_final.R**: `Rscript 2_fdr_correction_final.R DX POP1,POP2` <br /> This script requires command line arguments for disease and population. Output files are written to the /FDR and /Summary directories.
+3. **Run 2_fdr_correction_final.R**: `Rscript 2_fdr_correction_final.R DX POP1,POP2 5` <br /> This script requires command line arguments for disease, population, and number of imputation replicates. Output files are written to the /FDR and /Summary directories.
 
 4. **Run 3_factor_analysis_final.R**: `Rscript 3_factor_analysis_final.R DX POP1,POP2` <br /> This script also requires command line arguments for disease and population. This step may take a few minutes to run. Output files are written to the /Multi directory.
 
